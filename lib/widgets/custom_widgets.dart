@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:yala/screens/account_screen.dart';
+import 'package:yala/screens/transfer_fund_screen.dart';
 import 'package:yala/widgets/color.dart';
+
+import '../screens/home_screen.dart';
 
 class MyWidgets {
   static Widget bottomNavMenu(BuildContext context,
@@ -13,10 +17,10 @@ class MyWidgets {
         children: [
           TextButton(
             onPressed: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => const HomeScreen()),
-              // );
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const HomeScreen()),
+              );
             },
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -49,18 +53,17 @@ class MyWidgets {
           ),
           TextButton(
             onPressed: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //       builder: (context) => const PrescriptionScreen()),
-              // );
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const TransferFunds()),
+              );
             },
             child: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.add_chart,
+                  Icons.monetization_on_outlined,
                   color: contextIndex == 2
                       ? MyColors.logoClr
                       : contextIndex == 21 ||
@@ -70,7 +73,7 @@ class MyWidgets {
                           : Colors.grey,
                 ),
                 Text(
-                  'Prescription',
+                  'Transfer Funds',
                   style: TextStyle(
                     color: contextIndex == 2
                         ? MyColors.logoClr
@@ -84,58 +87,55 @@ class MyWidgets {
               ],
             ),
           ),
+          // TextButton(
+          //   onPressed: () {
+          //     // Navigator.push(
+          //     //   context,
+          //     //   MaterialPageRoute(builder: (context) => const SearchScreen()),
+          //     // );
+          //   },
+          //   child: Column(
+          //     mainAxisSize: MainAxisSize.min,
+          //     mainAxisAlignment: MainAxisAlignment.center,
+          //     children: [
+          //       Icon(
+          //         CupertinoIcons.search,
+          //         color: contextIndex == 3
+          //             ? MyColors.logoClr
+          //             : contextIndex == 2 ||
+          //                     contextIndex == 3 ||
+          //                     contextIndex == 4
+          //                 ? Colors.grey
+          //                 : Colors.grey,
+          //       ),
+          //       Text(
+          //         'Search',
+          //         style: TextStyle(
+          //           color: contextIndex == 3
+          //               ? MyColors.logoClr
+          //               : contextIndex == 2 ||
+          //                       contextIndex == 3 ||
+          //                       contextIndex == 4
+          //                   ? Colors.grey
+          //                   : Colors.grey,
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // ),
           TextButton(
             onPressed: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => const SearchScreen()),
-              // );
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const AccountScreen()),
+              );
             },
             child: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  CupertinoIcons.search,
-                  color: contextIndex == 3
-                      ? MyColors.logoClr
-                      : contextIndex == 2 ||
-                              contextIndex == 3 ||
-                              contextIndex == 4
-                          ? Colors.grey
-                          : Colors.grey,
-                ),
-                Text(
-                  'Search',
-                  style: TextStyle(
-                    color: contextIndex == 3
-                        ? MyColors.logoClr
-                        : contextIndex == 2 ||
-                                contextIndex == 3 ||
-                                contextIndex == 4
-                            ? Colors.grey
-                            : Colors.grey,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          TextButton(
-            onPressed: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder:
-              //    (context) =>
-              //    const CartScreen()
-              //    ),
-              // );
-            },
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  CupertinoIcons.cart,
+                  CupertinoIcons.person,
                   color: contextIndex == 4
                       ? MyColors.logoClr
                       : contextIndex == 3 ||
@@ -145,7 +145,7 @@ class MyWidgets {
                           : Colors.grey,
                 ),
                 Text(
-                  'Cart',
+                  'Account',
                   style: TextStyle(
                     color: contextIndex == 4
                         ? MyColors.logoClr
@@ -171,7 +171,7 @@ class MyWidgets {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.person_2_outlined,
+                  Icons.settings,
                   color: contextIndex == 5
                       ? MyColors.logoClr
                       : contextIndex == 4 ||
@@ -181,7 +181,7 @@ class MyWidgets {
                           : Colors.grey,
                 ),
                 Text(
-                  'Person',
+                  'Settings',
                   style: TextStyle(
                     color: contextIndex == 5
                         ? MyColors.logoClr
