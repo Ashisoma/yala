@@ -25,8 +25,9 @@ class _OtpScreenState extends State<OtpScreen> {
                 height: MediaQuery.of(context).size.height * 0.04,
               ),
               SizedBox(
+                height: MediaQuery.of(context).size.height * 0.04,
                 child: Image.asset(
-                  'images/mail.png',
+                  'images/yala.png',
                   fit: BoxFit.cover,
                 ),
               ),
@@ -59,7 +60,7 @@ class _OtpScreenState extends State<OtpScreen> {
                 numberOfFields: 4,
                 showFieldAsBox: true,
                 filled: true,
-                enabledBorderColor: MyColors.begin_clr,
+                enabledBorderColor: MyColors.logoClr,
                 fillColor: Colors.grey.shade300,
                 onCodeChanged: (value) {},
                 onSubmit: (value) {
@@ -87,9 +88,10 @@ class _OtpScreenState extends State<OtpScreen> {
                     child: const Text(
                       "Resend the OTP",
                       style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          color: MyColors.begin_clr),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        color: MyColors.logoClr,
+                      ),
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -100,7 +102,7 @@ class _OtpScreenState extends State<OtpScreen> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(
+                  Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
                       builder: (BuildContext context) =>
                           const VerifiedOtpScreen(),

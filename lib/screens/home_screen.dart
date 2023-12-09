@@ -1,4 +1,8 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
+import 'package:yala/widgets/color.dart';
 import 'package:yala/widgets/custom_widgets.dart';
 
 import '../models/card_items.dart';
@@ -11,6 +15,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int option = 1;
+
+  bool showTransactions = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,21 +39,49 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              horizontalListView(),
+              pager(),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.02,
               ),
               const Text(
-                "Services",
+                "Quick Services",
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
-                  fontSize: 16,
+                  fontSize: 18,
                 ),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.02,
+                height: MediaQuery.of(context).size.height * 0.01,
               ),
-              pager()
+              quickServices(),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Transactions",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 18,
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      setState(() {
+                        showTransactions = !showTransactions;
+                      });
+                    },
+                    icon: Icon(
+                      showTransactions
+                          ? Icons.visibility_outlined
+                          : Icons.visibility_off_outlined,
+                    ),
+                  ),
+                ],
+              ),
+              // transactionsList(),
             ],
           ),
         ),
@@ -57,6 +92,167 @@ class _HomeScreenState extends State<HomeScreen> {
           contextIndex: 1,
         ),
       ),
+    );
+  }
+
+  SizedBox transactionsList() {
+    return SizedBox(
+      // Adjust the height as needed
+      child: ListView.separated(
+        separatorBuilder: (context, index) {
+          return SizedBox(
+            width: MediaQuery.of(context).size.width * 0.02,
+          );
+        },
+        itemCount: 5,
+        scrollDirection: Axis.vertical,
+        itemBuilder: (ctx, index) {
+          return ListTile(
+            leading: const CircleAvatar(
+              backgroundColor: Colors.white,
+              backgroundImage: AssetImage(
+                'images/icon.png',
+              ),
+            ),
+            title: const Text(
+              'Transaction Successful',
+              style: TextStyle(
+                fontSize: 16.0,
+                fontWeight: FontWeight.w500,
+                color: Colors.black,
+              ),
+            ),
+            subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Your transfer of \$ 40.0 to Jane Doe was successful',
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black,
+                  ),
+                ),
+                Text(
+                  'Today at 12:43 pm',
+                  style: TextStyle(
+                    fontSize: 12.0,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.grey.shade700,
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  Row quickServices() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              option = 1;
+            });
+          },
+          child: Container(
+            padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 15),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10.0),
+              color: option == 1 ? MyColors.back_end_clr : Colors.white,
+              border: Border.all(
+                color: option == 1 ? MyColors.logoClr : Colors.grey,
+              ),
+            ),
+            child: Column(
+              children: [
+                Image.asset(
+                  'images/mpesa.png',
+                  fit: BoxFit.cover,
+                  scale: 10,
+                ),
+                const Text(
+                  "Mpesa to Mpesa",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 12,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              option = 2;
+            });
+          },
+          child: Container(
+            padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 15),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10.0),
+              color: option == 2 ? MyColors.back_end_clr : Colors.white,
+              border: Border.all(
+                color: option == 2 ? MyColors.logoClr : Colors.grey,
+              ),
+            ),
+            child: Column(
+              children: [
+                Image.asset(
+                  'images/mpesa.png',
+                  fit: BoxFit.cover,
+                  scale: 10,
+                ),
+                const Text(
+                  "Send to Mpesa",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 12,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              option = 3;
+            });
+          },
+          child: Container(
+            padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 15),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10.0),
+              color: option == 3 ? MyColors.back_end_clr : Colors.white,
+              border: Border.all(
+                color: option == 3 ? MyColors.logoClr : Colors.grey,
+              ),
+            ),
+            child: Column(
+              children: [
+                Image.asset(
+                  'images/mpesa.png',
+                  fit: BoxFit.cover,
+                  scale: 10,
+                ),
+                const Text(
+                  "Send to Airtel",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 12,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 
@@ -118,7 +314,7 @@ class _HomeScreenState extends State<HomeScreen> {
             height: MediaQuery.of(context).size.height * 0.4,
             width: MediaQuery.of(context).size.width * 0.9,
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(12.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -128,18 +324,18 @@ class _HomeScreenState extends State<HomeScreen> {
                     scale: 2.0,
                   ),
                   Text(
-                    '\$ ${items[index].amount}',
+                    'Bal \$ ${items[index].amount}',
                     style: const TextStyle(
-                      fontSize: 18.0,
+                      fontSize: 20.0,
                       fontWeight: FontWeight.w500,
                       color: Colors.white,
                     ),
                   ),
-                  Text(
-                    '\$ ${items[index].amount}',
-                    style: const TextStyle(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.w500,
+                  const Text(
+                    '2373 *** **** **** ***2',
+                    style: TextStyle(
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.w400,
                       color: Colors.white,
                     ),
                   ),

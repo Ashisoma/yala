@@ -51,7 +51,7 @@ class VerifiedOtpScreen extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   // GO TO PAYMENT SCREEN
-                  Navigator.of(context).push(
+                  Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
                       builder: (BuildContext context) => const HomeScreen(),
                     ),
