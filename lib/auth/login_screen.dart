@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:yala/auth/forgot_pass_screen.dart';
 import 'package:yala/auth/register_screen.dart';
+import 'package:yala/screens/home_screen.dart';
 import 'package:yala/widgets/color.dart';
 
 class LoginScreen extends StatefulWidget {
