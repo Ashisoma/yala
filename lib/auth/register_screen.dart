@@ -94,7 +94,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 TextField(
                   obscureText: _isHidden,
                   controller: passwordEditCtler,
-                  textAlign: TextAlign.center,
                   decoration: InputDecoration(
                     contentPadding: const EdgeInsets.fromLTRB(20, 10, 20, 12),
 
@@ -129,7 +128,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 TextField(
                   obscureText: confHidden,
                   controller: confPasswordEditCtler,
-                  textAlign: TextAlign.center,
                   decoration: InputDecoration(
                     contentPadding: const EdgeInsets.fromLTRB(20, 10, 20, 12),
 
@@ -154,13 +152,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 Center(
                   child: GestureDetector(
                     onTap: () {
-                      Get.to(() => HomeScreen());
+                      Get.to(() => const HomeScreen());
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width * 0.9,
                       height: MediaQuery.of(context).size.height * 0.058,
                       decoration: BoxDecoration(
-                        color: MyColors.end_clr,
+                        color: MyColors.logoClr,
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       child: const Center(
@@ -199,7 +197,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         "Log In",
                         style: TextStyle(
                           fontSize: 16,
-                          color: MyColors.begin_clr,
+                          color: MyColors.logoClr,
                         ),
                       ),
                     ),
