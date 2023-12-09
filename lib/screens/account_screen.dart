@@ -1,17 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:yala/auth/login_screen.dart';
-import 'package:yala/widgets/color.dart';
+import 'package:yala/models/card_items.dart';
 import 'package:yala/widgets/custom_widgets.dart';
 
-class AccountScreen extends StatefulWidget {
-  const AccountScreen({super.key});
+class SettingsScreen extends StatefulWidget {
+  const SettingsScreen({super.key});
 
   @override
-  State<AccountScreen> createState() => _AccountScreenState();
+  State<SettingsScreen> createState() => _SettingsScreenState();
 }
 
-class _AccountScreenState extends State<AccountScreen> {
+class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +18,7 @@ class _AccountScreenState extends State<AccountScreen> {
         backgroundColor: Colors.grey.shade200,
         automaticallyImplyLeading: false,
         title: const Text(
-          "Account",
+          "Account Management",
           style: TextStyle(
             fontWeight: FontWeight.w500,
             fontSize: 24,
@@ -82,214 +81,77 @@ class _AccountScreenState extends State<AccountScreen> {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.02,
-            ),
-            Container(
-              padding: const EdgeInsets.all(10.0),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10.0),
-                border: Border.all(
-                  color: Colors.grey.shade400,
-                ),
-              ),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      const CircleAvatar(
-                        backgroundColor: Colors.red,
-                        child: Icon(
-                          CupertinoIcons.person_2,
-                          color: Colors.white,
-                        ),
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.03,
-                      ),
-                      const Text(
-                        "Beneficiaries",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
-                      ),
-                      const Spacer(),
-                      const Icon(
-                        CupertinoIcons.forward,
-                        color: Colors.black,
-                      ),
-                    ],
-                  ),
-                  Divider(
-                    color: Colors.grey.shade400,
-                  ),
-                  Row(
-                    children: [
-                      const CircleAvatar(
-                        backgroundColor: Colors.indigo,
-                        child: Icon(
-                          Icons.wallet_travel,
-                          color: Colors.white,
-                        ),
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.03,
-                      ),
-                      const Text(
-                        "Account Details",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
-                      ),
-                      const Spacer(),
-                      const Icon(
-                        CupertinoIcons.forward,
-                        color: Colors.black,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
               height: MediaQuery.of(context).size.height * 0.03,
             ),
-            Container(
-              padding: const EdgeInsets.all(10.0),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10.0),
-                border: Border.all(
-                  color: Colors.grey.shade400,
-                ),
-              ),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      const CircleAvatar(
-                        backgroundColor: Colors.green,
-                        child: Icon(
-                          Icons.tune_rounded,
-                          color: Colors.white,
-                        ),
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.03,
-                      ),
-                      const Text(
-                        "Preferences",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
-                      ),
-                      const Spacer(),
-                      const Icon(
-                        CupertinoIcons.forward,
-                        color: Colors.black,
-                      ),
-                    ],
-                  ),
-                  Divider(
-                    color: Colors.grey.shade400,
-                  ),
-                  Row(
-                    children: [
-                      const CircleAvatar(
-                        backgroundColor: Colors.blue,
-                        child: Icon(
-                          Icons.lock,
-                          color: Colors.white,
-                        ),
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.03,
-                      ),
-                      const Text(
-                        "Security",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
-                      ),
-                      const Spacer(),
-                      const Icon(
-                        CupertinoIcons.forward,
-                        color: Colors.black,
-                      ),
-                    ],
-                  ),
-                  Divider(
-                    color: Colors.grey.shade400,
-                  ),
-                  Row(
-                    children: [
-                      const CircleAvatar(
-                        backgroundColor: Colors.orange,
-                        child: Icon(
-                          Icons.notifications_none_outlined,
-                          color: Colors.white,
-                        ),
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.03,
-                      ),
-                      const Text(
-                        "Notifications",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
-                      ),
-                      const Spacer(),
-                      const Icon(
-                        CupertinoIcons.forward,
-                        color: Colors.black,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.05,
-            ),
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) => const LoginScreen(),
-                  ),
-                );
-              },
-              child: Container(
-                height: MediaQuery.of(context).size.height * 0.06,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: MyColors.red_clr,
-                ),
-                child: const Center(
-                  child: Text(
-                    "Logout",
-                    style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500),
-                  ),
-                ),
-              ),
-            ),
+            Expanded(child: pager())
           ],
         ),
       ),
       bottomNavigationBar: Container(
         child: MyWidgets.bottomNavMenu(
           context,
-          contextIndex: 4,
+          contextIndex: 5,
         ),
+      ),
+    );
+  }
+
+  List<ItemsCard> items = [
+    ItemsCard('43.0', 'images/ic_visa.png',
+        LinearGradient(colors: [Colors.purple, Colors.purple.shade300])),
+    ItemsCard('43.0', 'images/ic_mastercard.png',
+        LinearGradient(colors: [Colors.blue, Colors.blue.shade300])),
+    ItemsCard('43.0', 'images/mpesa.png',
+        LinearGradient(colors: [Colors.green, Colors.green.shade300])),
+  ];
+
+  Widget pager() {
+    return SizedBox(
+      child: ListView.separated(
+        separatorBuilder: (context, index) => const SizedBox(
+          height: 20.0,
+        ),
+        itemCount: items.length,
+        itemBuilder: (context, index) {
+          return Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(
+                  15.0,
+                ),
+                gradient: items[index].linearGradient),
+            height: MediaQuery.of(context).size.height * 0.2,
+            width: MediaQuery.of(context).size.width * 0.9,
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset(
+                    height: 50,
+                    '${items[index].img}',
+                    scale: 2.0,
+                  ),
+                  Text(
+                    'Bal \$ ${items[index].amount}',
+                    style: const TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const Text(
+                    '2373 *** **** **** ***2',
+                    style: TextStyle(
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }

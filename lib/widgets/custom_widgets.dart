@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:yala/screens/setting_screen.dart';
 import 'package:yala/screens/account_screen.dart';
 import 'package:yala/screens/transfer_fund_screen.dart';
 import 'package:yala/widgets/color.dart';
@@ -161,10 +162,10 @@ class MyWidgets {
           ),
           TextButton(
             onPressed: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => const AccountScreen()),
-              // );
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SettingsScreen()),
+              );
             },
             child: Column(
               mainAxisSize: MainAxisSize.min,
