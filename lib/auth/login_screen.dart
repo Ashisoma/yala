@@ -39,7 +39,16 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.09,
+                  height: MediaQuery.of(context).size.height * 0.03,
+                ),
+                Center(
+                  child: Image.asset(
+                    'images/yala.png',
+                    height: MediaQuery.of(context).size.height * 0.05,
+                  ),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.03,
                 ),
                 const Text(
                   "Email Address",
@@ -107,21 +116,23 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.02,
                 ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (BuildContext context) =>
-                            const ForgotPasswScreen(),
-                      ),
-                    );
-                  },
-                  child: const Text(
-                    "Forgot Password ?",
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 15,
-                        color: Colors.black),
+                Center(
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              const ForgotPasswScreen(),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      "Forgot Password?",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 15,
+                          color: Colors.black),
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -170,8 +181,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                       child: const Text(
                         "Join Us",
-                        style:
-                            TextStyle(fontSize: 16, color: MyColors.begin_clr),
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: MyColors.logoClr,
+                        ),
                       ),
                     ),
                   ],
