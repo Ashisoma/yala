@@ -4,14 +4,14 @@ import 'package:yala/auth/login_screen.dart';
 import 'package:yala/widgets/color.dart';
 import 'package:yala/widgets/custom_widgets.dart';
 
-class AccountScreen extends StatefulWidget {
-  const AccountScreen({super.key});
+class SettingsScreen extends StatefulWidget {
+  const SettingsScreen({super.key});
 
   @override
-  State<AccountScreen> createState() => _AccountScreenState();
+  State<SettingsScreen> createState() => _SettingsScreenState();
 }
 
-class _AccountScreenState extends State<AccountScreen> {
+class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,11 +61,18 @@ class _AccountScreenState extends State<AccountScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
-                        "Add an account",
+                        "John Doe",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
                         ),
+                      ),
+                      Text(
+                        "938423444132",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 14,
+                            color: Colors.grey.shade700),
                       ),
                     ],
                   ),
@@ -281,7 +288,7 @@ class _AccountScreenState extends State<AccountScreen> {
       bottomNavigationBar: Container(
         child: MyWidgets.bottomNavMenu(
           context,
-          contextIndex: 4,
+          contextIndex: 5,
         ),
       ),
     );

@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:yala/widgets/color.dart';
 import 'package:yala/widgets/custom_widgets.dart';
 
@@ -23,6 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: Colors.grey.shade200,
       appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: Colors.grey.shade200,
         automaticallyImplyLeading: false,
         title: const Text(
           'YalaPay',
@@ -31,60 +32,58 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 10.0,
-            vertical: 10.0,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              pager(),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.02,
+      body: Container(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 10.0,
+          vertical: 10.0,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            pager(),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
+            ),
+            const Text(
+              "Quick Services",
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 18,
               ),
-              const Text(
-                "Quick Services",
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 18,
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.01,
+            ),
+            quickServices(),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.01,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  "Transactions",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 18,
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.01,
-              ),
-              quickServices(),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.01,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    "Transactions",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 18,
-                    ),
+                IconButton(
+                  onPressed: () {
+                    setState(() {
+                      showTransactions = !showTransactions;
+                    });
+                  },
+                  icon: Icon(
+                    showTransactions
+                        ? Icons.visibility_outlined
+                        : Icons.visibility_off_outlined,
                   ),
-                  IconButton(
-                    onPressed: () {
-                      setState(() {
-                        showTransactions = !showTransactions;
-                      });
-                    },
-                    icon: Icon(
-                      showTransactions
-                          ? Icons.visibility_outlined
-                          : Icons.visibility_off_outlined,
-                    ),
-                  ),
-                ],
-              ),
-              // transactionsList(),
-            ],
-          ),
+                ),
+              ],
+            ),
+            transactionsList(),
+          ],
         ),
       ),
       bottomNavigationBar: Container(
@@ -96,56 +95,59 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  SizedBox transactionsList() {
-    return SizedBox(
-      // Adjust the height as needed
-      child: ListView.separated(
-        separatorBuilder: (context, index) {
-          return SizedBox(
-            width: MediaQuery.of(context).size.width * 0.02,
-          );
-        },
-        itemCount: 5,
-        scrollDirection: Axis.vertical,
-        itemBuilder: (ctx, index) {
-          return ListTile(
-            leading: const CircleAvatar(
-              backgroundColor: Colors.white,
-              backgroundImage: AssetImage(
-                'images/icon.png',
-              ),
-            ),
-            title: const Text(
-              'Transaction Successful',
-              style: TextStyle(
-                fontSize: 16.0,
-                fontWeight: FontWeight.w500,
-                color: Colors.black,
-              ),
-            ),
-            subtitle: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  'Your transfer of \$ 40.0 to Jane Doe was successful',
-                  style: TextStyle(
-                    fontSize: 14.0,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.black,
-                  ),
+  Widget transactionsList() {
+    return Expanded(
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height * 1,
+        // Adjust the height as needed
+        child: ListView.separated(
+          separatorBuilder: (context, index) {
+            return Divider(
+              height: MediaQuery.of(context).size.height * 0.02,
+            );
+          },
+          itemCount: 5,
+          //   scrollDirection: Axis.vertical,
+          itemBuilder: (ctx, index) {
+            return ListTile(
+              leading: const CircleAvatar(
+                // backgroundColor: Colors.white,
+                backgroundImage: AssetImage(
+                  'images/icon.png',
                 ),
-                Text(
-                  'Today at 12:43 pm',
-                  style: TextStyle(
-                    fontSize: 12.0,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.grey.shade700,
-                  ),
+              ),
+              title: const Text(
+                'Transaction Successful',
+                style: TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black,
                 ),
-              ],
-            ),
-          );
-        },
+              ),
+              subtitle: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Your transfer of \$ 40.0 to Jane Doe was successful',
+                    style: TextStyle(
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black,
+                    ),
+                  ),
+                  Text(
+                    'Today at 12:43 pm',
+                    style: TextStyle(
+                      fontSize: 12.0,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.grey.shade700,
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+        ),
       ),
     );
   }

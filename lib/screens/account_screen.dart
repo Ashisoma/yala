@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:yala/models/card_items.dart';
 import 'package:yala/widgets/custom_widgets.dart';
 
-class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({super.key});
+class AccountScreen extends StatefulWidget {
+  const AccountScreen({super.key});
 
   @override
-  State<SettingsScreen> createState() => _SettingsScreenState();
+  State<AccountScreen> createState() => _AccountScreenState();
 }
 
-class _SettingsScreenState extends State<SettingsScreen> {
+class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,24 +56,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.03,
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        "John Doe",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
-                      ),
-                      Text(
-                        "938423444132",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 14,
-                            color: Colors.grey.shade700),
-                      ),
-                    ],
+                  const Text(
+                    "Add Account",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
                   ),
                   const Spacer(),
                   const Center(child: Icon(CupertinoIcons.forward))
@@ -83,6 +71,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.03,
             ),
+            const Text(
+              "My Accounts",
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 18,
+              ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
+            ),
             Expanded(child: pager())
           ],
         ),
@@ -90,7 +88,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       bottomNavigationBar: Container(
         child: MyWidgets.bottomNavMenu(
           context,
-          contextIndex: 5,
+          contextIndex: 4,
         ),
       ),
     );
