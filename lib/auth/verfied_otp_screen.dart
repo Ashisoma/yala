@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:yala/screens/home_screen.dart';
 import 'package:yala/widgets/color.dart';
 
-
 class VerifiedOtpScreen extends StatelessWidget {
   const VerifiedOtpScreen({super.key});
 
@@ -54,8 +53,7 @@ class VerifiedOtpScreen extends StatelessWidget {
                   // GO TO PAYMENT SCREEN
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (BuildContext context) =>
-                          const HomeScreen(),
+                      builder: (BuildContext context) => const HomeScreen(),
                     ),
                   );
                 },
@@ -63,7 +61,7 @@ class VerifiedOtpScreen extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * 0.06,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: MyColors.bluish_clr,
+                    color: MyColors.logoClr,
                   ),
                   child: const Center(
                     child: Text(

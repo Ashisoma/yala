@@ -111,7 +111,7 @@ class _OtpScreenState extends State<OtpScreen> {
                   height: MediaQuery.of(context).size.height * 0.06,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: MyColors.bluish_clr,
+                    color: MyColors.logoClr,
                   ),
                   child: const Center(
                     child: Text(

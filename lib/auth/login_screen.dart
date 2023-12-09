@@ -12,8 +12,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-   TextEditingController passwordEditCtler = TextEditingController();
-   TextEditingController emailCtrler = TextEditingController();
+  TextEditingController passwordEditCtler = TextEditingController();
+  TextEditingController emailCtrler = TextEditingController();
   bool checked = false;
   bool _isHidden = false;
   @override
@@ -38,13 +38,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-                const Text(
-                  "Log in to Continue",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 15,
-                  ),
-                ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.09,
                 ),
@@ -58,25 +51,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.01,
                 ),
-                TextField(
-      controller: emailCtrler,
-      textAlign: TextAlign.center,
-      decoration: InputDecoration(
-        contentPadding: const EdgeInsets.fromLTRB(20, 10, 20, 12),
+                TextFormField(
+                  controller: emailCtrler,
+                  decoration: InputDecoration(
+                    hintText: "johndoe@mail.com",
 
-        hintText: "Enter your email address",
-        suffix: InkWell(
-          onTap: _togglePasswordView,
-          child:const  Icon(
-            Icons.email_outlined
-          ),
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20.0),
-        ),
-        // labelText: 'Password',
-      ),
-    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                    // labelText: 'Password',
+                  ),
+                ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.01,
                 ),
@@ -94,13 +79,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.03,
                 ),
-                
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (BuildContext context) =>
-                            const HomeScreen(),
+                        builder: (BuildContext context) => const HomeScreen(),
                       ),
                     );
                   },
@@ -108,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: MediaQuery.of(context).size.height * 0.06,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: MyColors.bluish_clr,
+                      color: MyColors.logoClr,
                     ),
                     child: const Center(
                       child: Text(
@@ -128,7 +111,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (BuildContext context) => const ForgotPasswScreen(),
+                        builder: (BuildContext context) =>
+                            const ForgotPasswScreen(),
                       ),
                     );
                   },
@@ -201,14 +185,12 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Widget passwordField() {
-    return TextField(
+    return TextFormField(
       obscureText: _isHidden,
       controller: passwordEditCtler,
-      textAlign: TextAlign.center,
       decoration: InputDecoration(
-        contentPadding: const EdgeInsets.fromLTRB(20, 10, 20, 12),
+        contentPadding: const EdgeInsets.fromLTRB(20, 12, 20, 12),
 
-        hintText: "Enter your password",
         suffix: InkWell(
           onTap: _togglePasswordView,
           child: Icon(
