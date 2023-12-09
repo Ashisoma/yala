@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:yala/auth/forgot_pass_screen.dart';
 import 'package:yala/auth/login_screen.dart';
 import 'package:yala/widgets/color.dart';
 
@@ -163,7 +165,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 height: MediaQuery.of(context).size.height * 0.03,
               ),
               TextButton(
-                onPressed: () async {},
+                onPressed: () async {
+                  await Get.to(() => const ForgotPasswScreen());
+                },
                 child: const Text(
                   'Forgot/Reset password',
                   style: TextStyle(
