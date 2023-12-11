@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            pager(),
+            // pager(),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.02,
             ),
