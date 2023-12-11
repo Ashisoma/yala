@@ -269,7 +269,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 height: MediaQuery.of(context).size.height * 0.06,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: MyColors.red_clr,
+                  color: MyColors.redCls,
                 ),
                 child: const Center(
                   child: Text(

@@ -164,7 +164,7 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 15),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
-              color: option == 1 ? MyColors.back_end_clr : Colors.white,
+              color: option == 1 ? MyColors.backEndClr : Colors.white,
               border: Border.all(
                 color: option == 1 ? MyColors.logoClr : Colors.grey,
               ),
@@ -201,7 +201,7 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 15),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
-              color: option == 2 ? MyColors.back_end_clr : Colors.white,
+              color: option == 2 ? MyColors.backEndClr : Colors.white,
               border: Border.all(
                 color: option == 2 ? MyColors.logoClr : Colors.grey,
               ),
@@ -237,7 +237,7 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 15),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
-              color: option == 3 ? MyColors.back_end_clr : Colors.white,
+              color: option == 3 ? MyColors.backEndClr : Colors.white,
               border: Border.all(
                 color: option == 3 ? MyColors.logoClr : Colors.grey,
               ),
