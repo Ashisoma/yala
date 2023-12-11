@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:yala/auth/forgot_pass_screen.dart';
 import 'package:yala/auth/login_screen.dart';
 import 'package:yala/auth/otp_screen.dart';
-import 'package:yala/screens/home_screen.dart';
 import 'package:yala/widgets/color.dart';
 
 class RegisterScreen extends StatefulWidget {

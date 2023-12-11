@@ -67,10 +67,10 @@ class _TransferFundsState extends State<TransferFunds> {
                     ),
                     Expanded(
                       child: TextFormField(
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: "0.00",
-                          hintStyle: const TextStyle(
+                          hintStyle: TextStyle(
                             fontWeight: FontWeight.w500,
                             fontSize: 15,
                           ),
@@ -105,10 +105,10 @@ class _TransferFundsState extends State<TransferFunds> {
                   children: [
                     Expanded(
                       child: TextFormField(
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: "Select Bank Account",
-                          hintStyle: const TextStyle(
+                          hintStyle: TextStyle(
                             fontWeight: FontWeight.w500,
                             fontSize: 15,
                           ),
