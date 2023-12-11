@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:yala/widgets/color.dart';
 import 'package:yala/widgets/custom_widgets.dart';
@@ -19,7 +18,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade200,
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Colors.grey.shade200,
@@ -32,6 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       body: Container(
+        color: Colors.grey.shade200,
         padding: const EdgeInsets.symmetric(
           horizontal: 10.0,
           vertical: 10.0,
@@ -172,13 +171,17 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             child: Column(
               children: [
-                Image.asset(
-                  'images/mpesa.png',
-                  fit: BoxFit.cover,
-                  scale: 10,
+                SizedBox(
+                  height: 25.0,
+                  child: Image.asset(
+                    'images/ic_visa.png',
+                    fit: BoxFit.cover,
+                    scale: 10,
+                    color: Colors.purple,
+                  ),
                 ),
                 const Text(
-                  "Mpesa to Mpesa",
+                  "Bank to Mpesa",
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: 12,
@@ -205,13 +208,16 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             child: Column(
               children: [
-                Image.asset(
-                  'images/mpesa.png',
-                  fit: BoxFit.cover,
-                  scale: 10,
+                SizedBox(
+                  height: 25.0,
+                  child: Image.asset(
+                    'images/mpesa.png',
+                    fit: BoxFit.cover,
+                    scale: 10,
+                  ),
                 ),
                 const Text(
-                  "Send to Mpesa",
+                  "Mpesa to Mpesa",
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: 12,
@@ -238,13 +244,16 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             child: Column(
               children: [
-                Image.asset(
-                  'images/mpesa.png',
-                  fit: BoxFit.cover,
-                  scale: 10,
+                SizedBox(
+                  height: 25.0,
+                  child: Image.asset(
+                    'images/airtel.png',
+                    fit: BoxFit.cover,
+                    scale: 10,
+                  ),
                 ),
                 const Text(
-                  "Send to Airtel",
+                  "Mpesa to Airtel",
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: 12,
