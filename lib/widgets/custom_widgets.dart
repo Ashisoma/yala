@@ -11,7 +11,7 @@ class MyWidgets {
   static Widget bottomNavMenu(BuildContext context,
       {required int contextIndex}) {
     return Container(
-      margin: EdgeInsets.all(5.0),
+      margin: const EdgeInsets.all(5.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         // ignore: prefer_const_literals_to_create_immutables
