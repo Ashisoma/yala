@@ -294,3 +294,104 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 }
+
+class SettingScreen extends StatefulWidget {
+  const SettingScreen({super.key});
+
+  @override
+  State<SettingScreen> createState() => _SettingScreenState();
+}
+
+class _SettingScreenState extends State<SettingScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text(
+          "Settings",
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.all(
+            8.0,
+          ),
+          child: Column(
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.3,
+                child: profileWIdget(),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.03,
+              ),
+              Container(
+                padding: const EdgeInsets.all(10.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10.0),
+                  border: Border.all(
+                    color: Colors.grey.shade200,
+                  ),
+                ),
+                child: ListTile(
+                  onTap: () {},
+                  leading: const Icon(
+                    Icons.person,
+                    color: Colors.black,
+                  ),
+                  title: const Text(
+                    "Profile",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                  trailing: const Icon(
+                    CupertinoIcons.forward,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget profileWIdget() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+            height: MediaQuery.of(context).size.height * 0.15,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20.0),
+                border: Border.all(
+                  color: Colors.grey.shade600,
+                )),
+            child: Image.asset(
+              'images/avatar.png',
+              fit: BoxFit.fill,
+            )),
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.03,
+        ),
+        const Text(
+          "Hello, Mahdi ***",
+        ),
+        const Text("Referal Code - '' "),
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.03,
+        ),
+        const Text('Points'),
+      ],
+    );
+  }
+}

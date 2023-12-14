@@ -109,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
           itemBuilder: (ctx, index) {
             return ListTile(
               leading: const CircleAvatar(
-                // backgroundColor: Colors.white,
+                backgroundColor: Colors.white,
                 backgroundImage: AssetImage(
                   'images/icon.png',
                 ),
