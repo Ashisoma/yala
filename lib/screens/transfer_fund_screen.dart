@@ -7,7 +7,16 @@ import 'package:yala/widgets/color.dart';
 import 'package:yala/widgets/custom_widgets.dart';
 
 class TransferFunds extends StatefulWidget {
-  const TransferFunds({super.key});
+  final String imgUrl;
+  final String acc;
+  final String fund;
+  final Color color;
+  TransferFunds(
+      {super.key,
+      required this.imgUrl,
+      required this.acc,
+      required this.fund,
+      required this.color});
 
   @override
   State<TransferFunds> createState() => _TransferFundsState();
@@ -70,32 +79,34 @@ class _TransferFundsState extends State<TransferFunds> {
                           height: MediaQuery.of(context).size.height * 0.06,
                           padding: const EdgeInsets.all(5.0),
                           decoration: BoxDecoration(
-                            color: Colors.purple,
+                            color: widget.color,
                             borderRadius: BorderRadius.circular(5.0),
+                            border: Border.all(
+                              color: Colors.grey.shade400,
+                            ),
                           ),
                           child: Align(
                             alignment: Alignment.bottomLeft,
                             child: SizedBox(
-                                height: 20,
-                                child: Image.asset('images/ic_visa.png')),
+                                height: 20, child: Image.asset(widget.imgUrl)),
                           ),
                         ),
                         SizedBox(
                           width: MediaQuery.of(context).size.width * 0.03,
                         ),
-                        const Column(
+                        Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "0110 **** **** **** 1234",
-                              style: TextStyle(
+                              widget.acc,
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
                               ),
                             ),
                             Text(
-                              "Visa",
-                              style: TextStyle(
+                              widget.fund,
+                              style: const TextStyle(
                                 fontWeight: FontWeight.w300,
                                 fontSize: 14,
                                 // color:

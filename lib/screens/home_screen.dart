@@ -158,7 +158,12 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         GestureDetector(
           onTap: () {
-            Get.to(() => const TransferFunds());
+            Get.to(() => TransferFunds(
+                  imgUrl: 'images/ic_visa.png',
+                  acc: "0110 **** **** **** 1234",
+                  fund: 'Visa',
+                  color: Colors.purple,
+                ));
             setState(() {
               option = 1;
             });
@@ -196,6 +201,12 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         GestureDetector(
           onTap: () {
+            Get.to(() => TransferFunds(
+                  imgUrl: 'images/mpesa.png',
+                  acc: "07 123 *** ***",
+                  fund: 'Mpesa',
+                  color: Colors.white,
+                ));
             setState(() {
               option = 2;
             });
@@ -232,6 +243,12 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         GestureDetector(
           onTap: () {
+            Get.to(() => TransferFunds(
+                  imgUrl: 'images/airtel.png',
+                  acc: "07 54** ****",
+                  fund: 'Airtel',
+                  color: Colors.white,
+                ));
             setState(() {
               option = 3;
             });

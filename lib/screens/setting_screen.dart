@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:yala/auth/login_screen.dart';
 import 'package:yala/widgets/color.dart';
 import 'package:yala/widgets/custom_widgets.dart';
@@ -259,11 +260,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) => const LoginScreen(),
-                  ),
-                );
+                Get.offAll(() => const LoginScreen());
               },
               child: Container(
                 height: MediaQuery.of(context).size.height * 0.06,
