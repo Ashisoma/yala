@@ -1,4 +1,8 @@
-import 'package:country_code_picker/country_code_picker.dart';
+import 'package:country_currency_pickers/countries.dart';
+import 'package:country_currency_pickers/country.dart';
+import 'package:country_currency_pickers/country_picker_cupertino.dart';
+import 'package:country_currency_pickers/country_picker_dialog.dart';
+import 'package:country_currency_pickers/country_picker_dropdown.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:yala/screens/setting_screen.dart';
@@ -212,91 +216,187 @@ class MyWidgets {
 
 class TransactionForm extends StatefulWidget {
   const TransactionForm({super.key});
-  
+
   @override
   State<TransactionForm> createState() => _TransactionFormState();
-
 }
 
 class _TransactionFormState extends State<TransactionForm> {
-    String _selectedCountryCode = '+1'; // Default country code
-
+  String _selectedCountryCode = '+1'; // Default country code
 
   @override
   Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(left: 12, right: 12),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+      child: transferForm(context),
+    );
+  }
 
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          const Text(
-            'Money transfer to Bit',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+  transferForm(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const Text(
+          'Money transfer',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.01,
+        ),
+        const Text(
+          'Phone Number',
+          style: TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.w400,
           ),
-          TextFormField(
-            // controller: emailCtrler,
-            decoration: InputDecoration(
-              hintText: "",
-              isDense: true,
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10.0),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        SizedBox(
+          width: 200,
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.grey,
+                width: 1,
               ),
-              // labelText: 'Password',
+              borderRadius: BorderRadius.circular(10),
             ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.01,
-          ),
-          SizedBox(
-            width: 200,
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: [
-                 Expanded(
-            child: TextFormField(
-              // controller: _textFieldController,
-              decoration: const InputDecoration(
-                labelText: 'Phone Number',
-              ),
-            ),
-          ),
-          const SizedBox(width: 10), // Add some spacing between the TextFormField and CountryCodePicker
-          CountryCodePicker(
-            onChanged: (CountryCode code) {
-              setState(() {
-                _selectedCountryCode = code.toString();
-              });
-            },
-            initialSelection: 'US', // Set the initial country selection
-            favorite: ['+1'], // Optionally, set your favorite countries
-            showCountryOnly: false,
-            showOnlyCountryWhenClosed: false,
-            alignLeft: false,
-          ),
+                // Expanded(
+                //   child: CountryPickerDialog(
+                //     titlePadding: EdgeInsets.all(8.0),
+                //     searchCursorColor: Colors.pinkAccent,
+                //     searchInputDecoration:
+                //         InputDecoration(hintText: 'Search...'),
+                //     isSearchable: true,
+                //     title: Text('Select your phone code'),
+                //     onValuePicked: (Country country) => setState(
+                //         () => _selectedCountryCode = country as String),
+                //   ),
+                // ),
+                Container(
+                  height: 45,
+                  width: 1,
+                  color: Colors.grey,
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Expanded(
+                  child: TextFormField(
+                    // controller: _textFieldController,
+                    decoration: const InputDecoration(
+                      hintText: '7******',
+                      border: InputBorder.none,
+                    ),
+                  ),
+                ),
+                // Add some spacing between the TextFormField and CountryCodePicker
               ],
             ),
           ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.01,
+        ),
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.01,
+        ),
+        const Text(
+          'Amount',
+          style: TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.w400,
           ),
-          const SizedBox(height: 16),
-          // Add your form widgets here
-          TextFormField(
-            decoration: const InputDecoration(labelText: 'Amount'),
-            keyboardType: TextInputType.number,
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        SizedBox(
+          width: 200,
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.grey,
+                width: 1,
+              ),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Row(
+              // mainAxisSize: MainAxisSize.max,
+              children: [
+                // Expanded(
+                //   child: CountryPickerDialog(
+                //     titlePadding: EdgeInsets.all(8.0),
+                //     searchCursorColor: Colors.pinkAccent,
+                //     searchInputDecoration:
+                //         InputDecoration(hintText: 'Search...'),
+                //     isSearchable: true,
+                //     title: Text('Select your phone code'),
+                //     onValuePicked: (Country country) => setState(
+                //         () => _selectedCountryCode = country as String),
+                //   ),
+                // ),
+                Container(
+                  height: 45,
+                  width: 1,
+                  color: Colors.grey,
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Expanded(
+                  child: TextFormField(
+                    keyboardType: TextInputType.number,
+                    // controller: _textFieldController,
+                    decoration: const InputDecoration(
+                      hintText: '0.00',
+                      border: InputBorder.none,
+                    ),
+                  ),
+                ),
+                // Add some spacing between the TextFormField and CountryCodePicker
+              ],
+            ),
           ),
-          const SizedBox(height: 16),
-          ElevatedButton(
-            onPressed: () {
-              // Handle form submission
-              Navigator.pop(context); // Close the bottom sheet
-            },
-            child: const Text('Submit'),
+        ),
+        //
+        const SizedBox(height: 16),
+        //Add your form widgets here
+        const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Commission',
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+            Text('0.10')
+          ],
+        ),
+        const SizedBox(height: 16),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: MyColors.logoClr,
           ),
-        ],
-      ),
+          onPressed: () {
+            // Handle form submission
+            Navigator.pop(context); // Close the bottom sheet
+          },
+          child: const Text(
+            'Submit',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

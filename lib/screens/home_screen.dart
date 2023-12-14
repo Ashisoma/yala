@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:yala/widgets/color.dart';
 import 'package:yala/widgets/custom_widgets.dart';
 
 import '../models/card_items.dart';
+import 'transfer_fund_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -156,6 +158,7 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         GestureDetector(
           onTap: () {
+            Get.to(() => const TransferFunds());
             setState(() {
               option = 1;
             });

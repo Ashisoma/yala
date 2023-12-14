@@ -1,5 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:yala/screens/home_screen.dart';
+import 'package:yala/widgets/color.dart';
 import 'package:yala/widgets/custom_widgets.dart';
 
 class TransferFunds extends StatefulWidget {
@@ -146,7 +150,7 @@ class _TransferFundsState extends State<TransferFunds> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Deposit Amount",
+                          "Deposit Balance",
                           style: TextStyle(
                             fontWeight: FontWeight.w500,
                             fontSize: 15,
@@ -161,9 +165,152 @@ class _TransferFundsState extends State<TransferFunds> {
                         ),
                       ],
                     ),
-                    Divider(
-                      color: Colors.grey.shade400,
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
+              ),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const Text(
+                    'Phone Number',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w400,
                     ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  SizedBox(
+                    width: 200,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.grey,
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          // Expanded(
+                          //   child: CountryPickerDialog(
+                          //     titlePadding: EdgeInsets.all(8.0),
+                          //     searchCursorColor: Colors.pinkAccent,
+                          //     searchInputDecoration:
+                          //         InputDecoration(hintText: 'Search...'),
+                          //     isSearchable: true,
+                          //     title: Text('Select your phone code'),
+                          //     onValuePicked: (Country country) => setState(
+                          //         () => _selectedCountryCode = country as String),
+                          //   ),
+                          // ),
+                          Container(
+                            height: 45,
+                            width: 1,
+                            color: Colors.grey,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Expanded(
+                            child: TextFormField(
+                              // controller: _textFieldController,
+                              decoration: const InputDecoration(
+                                hintText: '7******',
+                                border: InputBorder.none,
+                              ),
+                            ),
+                          ),
+                          // Add some spacing between the TextFormField and CountryCodePicker
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.01,
+                  ),
+                  const Text(
+                    'Amount',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  SizedBox(
+                    width: 200,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.grey,
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Row(
+                        // mainAxisSize: MainAxisSize.max,
+                        children: [
+                          // Expanded(
+                          //   child: CountryPickerDialog(
+                          //     titlePadding: EdgeInsets.all(8.0),
+                          //     searchCursorColor: Colors.pinkAccent,
+                          //     searchInputDecoration:
+                          //         InputDecoration(hintText: 'Search...'),
+                          //     isSearchable: true,
+                          //     title: Text('Select your phone code'),
+                          //     onValuePicked: (Country country) => setState(
+                          //         () => _selectedCountryCode = country as String),
+                          //   ),
+                          // ),
+                          Container(
+                            height: 45,
+                            width: 1,
+                            color: Colors.grey,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Expanded(
+                            child: TextFormField(
+                              keyboardType: TextInputType.number,
+                              // controller: _textFieldController,
+                              decoration: const InputDecoration(
+                                hintText: '0.00',
+                                border: InputBorder.none,
+                              ),
+                            ),
+                          ),
+                          // Add some spacing between the TextFormField and CountryCodePicker
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.02,
+              ),
+              Container(
+                padding: const EdgeInsets.all(10.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(
+                    color: Colors.grey,
+                    width: 1,
+                  ),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
                     const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -197,7 +344,7 @@ class _TransferFundsState extends State<TransferFunds> {
                           ),
                         ),
                         Text(
-                          "\$ 9.90",
+                          "\$ 0.00",
                           style: TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 15,
@@ -209,10 +356,32 @@ class _TransferFundsState extends State<TransferFunds> {
                 ),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.01,
+                height: MediaQuery.of(context).size.height * 0.02,
               ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 1,
+              Center(
+                child: GestureDetector(
+                  onTap: () {
+                    Get.to(() => const HomeScreen());
+                  },
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    height: MediaQuery.of(context).size.height * 0.058,
+                    decoration: BoxDecoration(
+                      color: MyColors.logoClr,
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        'Submit',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 20.0,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
